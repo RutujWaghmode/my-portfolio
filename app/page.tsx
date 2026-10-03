@@ -93,7 +93,7 @@ export default function Page() {
               </div>
             </div>
             <dl className="rounded-2xl border border-slate-100 bg-slate-50 p-6 shadow-sm">
-              {([['Name',`${profile.first} ${profile.last}`,'code'],['Email',profile.email,'mail'],['Location',profile.location,'pin'],['Languages',profile.languages,'code']] as const).map(([k,v,icon]) => <div key={k} className="flex gap-4 border-b border-slate-200 py-4 last:border-0"><span className="mt-0.5 text-blue-500"><Icon name={icon}/></span><div><dt className="text-xs text-slate-500">{k}</dt><dd className="mt-1 text-sm font-semibold text-slate-900">{v}</dd></div></div>)}
+              {([['Name',`${profile.first} ${profile.last}`,'code'],['Email',profile.email,'mail'],['Location',profile.location,'pin'],['Languages',profile.languages,'code']] as const).map(([k,v,icon]) => <div key={k} className="flex gap-4 border-b border-slate-200 py-4 last:border-0"><span className="mt-0.5 text-blue-500"><Icon name={icon}/></span><div><dt className="text-xs text-slate-500">{k}</dt><dd className="mt-1 break-words text-sm font-semibold text-slate-900">{v}</dd></div></div>)}
             </dl>
           </div>
         </Section>
@@ -126,7 +126,7 @@ export default function Page() {
           <Title t="Resume" sub="Download my resume to know more about my education, experience and skills." />
           <div className="grid gap-6 lg:grid-cols-[1fr_1fr]">
             <div className="rounded-2xl bg-slate-50 p-8 shadow-sm"><div className="mb-6 grid h-14 w-14 place-items-center rounded-full bg-blue-100 text-blue-600"><Icon name="download" /></div><h3 className="text-xl font-bold text-slate-900">{profile.first} {profile.last}</h3><p className="mt-1 text-sm">{profile.role}</p><a href="/resume.pdf" download className="mt-7 inline-flex items-center gap-2 rounded-lg bg-blue-500 px-5 py-3 text-sm font-bold text-white hover:bg-blue-600"><Icon name="download"/> Download Resume</a></div>
-            <dl className="grid gap-3 rounded-2xl border border-slate-200 p-7 sm:grid-cols-2">{([['Education',profile.education],['Experience',`${profile.years} Years`],['Location',profile.location],['Email',profile.email]] as const).map(([k,v]) => <div key={k} className="rounded-xl bg-slate-50 p-4"><dt className="text-xs text-slate-500">{k}</dt><dd className="mt-1 text-sm font-semibold text-slate-900">{v}</dd></div>)}</dl>
+            <dl className="grid gap-3 rounded-2xl border border-slate-200 p-7 sm:grid-cols-2">{([['Education',profile.education],['Experience',`${profile.years} Years`],['Location',profile.location],['Email',profile.email]] as const).map(([k,v]) => <div key={k} className="rounded-xl bg-slate-50 p-4"><dt className="text-xs text-slate-500">{k}</dt><dd className="mt-1 break-words text-sm font-semibold text-slate-900">{v}</dd></div>)}</dl>
           </div>
         </Section>
 
@@ -137,7 +137,7 @@ export default function Page() {
         </Section>
       </main>
 
-      <footer className="bg-navy px-5 py-8 text-sm text-slate-400 sm:px-6"><div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3"><div><p className="font-bold text-white">{profile.first} {profile.last}</p><p>{profile.role}</p></div><div className="flex gap-5">{nav.map((n)=><a key={n} href={`#${n.toLowerCase()}`} className="hover:text-white">{n}</a>)}</div></div><div className="mx-auto mt-6 max-w-6xl border-t border-white/10 pt-5 text-xs">© {new Date().getFullYear()} {profile.first} {profile.last}. All rights reserved.</div></footer>
+      <footer className="bg-navy px-5 py-8 text-sm text-slate-400 sm:px-6"><div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3"><div><p className="font-bold text-white">{profile.first} {profile.last}</p><p>{profile.role}</p></div><div className="flex flex-wrap gap-x-5 gap-y-2">{nav.map((n)=><a key={n} href={`#${n.toLowerCase()}`} className="hover:text-white">{n}</a>)}</div></div><div className="mx-auto mt-6 max-w-6xl border-t border-white/10 pt-5 text-xs">© {new Date().getFullYear()} {profile.first} {profile.last}. All rights reserved.</div></footer>
     </div>
   );
 }

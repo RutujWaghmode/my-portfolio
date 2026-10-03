@@ -2,7 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-html { scroll-behavior: smooth; }
-body { @apply bg-white text-slate-700 antialiased; }
-* { box-sizing: border-box; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
+body { @apply bg-white text-slate-700 antialiased; overflow-x: hidden; max-width: 100%; }
+*, *::before, *::after { box-sizing: border-box; max-width: 100%; }
+img, svg, video, canvas { max-width: 100%; }
 ::selection { background: #2563eb; color: white; }
